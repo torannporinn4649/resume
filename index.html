@@ -934,6 +934,72 @@
             color: var(--muted);
             line-height: 1.6;
         }
+
+        /* 参考リンク */
+        .y-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .y-link-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--ms-blue);
+            border-radius: 6px;
+            padding: 12px 14px;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .y-link-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 120, 212, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .y-link-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .y-link-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .y-link-category {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ms-blue);
+            margin-bottom: 2px;
+        }
+
+        .y-link-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .y-link-url {
+            font-size: 10px;
+            color: var(--muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .y-link-arrow {
+            font-size: 14px;
+            color: var(--ms-blue);
+            flex-shrink: 0;
+        }
     </style>
 
 
@@ -1020,7 +1086,8 @@
                             <div class="y-role-year">3回生</div>
                             <div class="y-role-title">練習統括として組織をリード</div>
                             <div class="y-role-desc">
-                                練習統括になってからは、このやり方を個人で終わらせず、感覚に頼りがちな動きを振り辞書として言語化し、基準を共有した。具体的には、今までの自分が得たものだけでなく、踊りが上手いメンバーに上達のきっかけや意識している点をヒアリングしてコツを見つけ、踊りが苦手なメンバーへの個別指導で教え方を試行錯誤した。そこで効果が高かった伝え方を振り辞書に蓄積し、誰でも同じ基準で修正できる形にした。成長を再現できる仕組みに変えて、周りにも波及させた。
+                                練習統括になってからは、このやり方を個人で終わらせず、感覚に頼りがちな動きを「振り辞書」として言語化し、基準を共有した。具体的には、自分の経験だけに頼らず、踊りが上手いメンバーに上達のきっかけや意識している点をヒアリングしてコツを整理し、踊りが苦手なメンバーへの個別指導で教え方を試行錯誤した。そこで効果が高かった伝え方を振り辞書に蓄積し、誰でも同じ基準で修正できる形にした。<br>
+                                一方で、チームとしての練習の進め方には当時ノウハウが不足していたため、10チームの練習に参加し、実際に大会にも出場して、練習の段取りや揃え方などチーム運用の工夫を学び、自チームに合う形で取り入れた。個人の上達とチームの運用改善を別軸で整え、成長を継続的に再現できる状態を作った。
                             </div>
                         </div>
                     </div>
@@ -1057,8 +1124,8 @@
                     <div class="y-skill-card">
                         <div class="y-skill-icon">🎯</div>
                         <div>
-                            <h4>課題の可視化と構造化</h4>
-                            <p>練習の問題点を客観的に分析し、優先度をつけて改善策を立案・実行するPDCAを経験。</p>
+                            <h4>個人とチームの成長を経験</h4>
+                            <p>個人の成長そしてそれを組織に還元するやりがいを実感。</p>
                         </div>
                     </div>
                     <div class="y-skill-card">
@@ -1071,7 +1138,7 @@
                     <div class="y-skill-card">
                         <div class="y-skill-icon">🔄</div>
                         <div>
-                            <h4>「他者のために尽くす」思考</h4>
+                            <h4>他者のために尽くす思考</h4>
                             <p>自分軸から他者軸へ視座を転換。チームの成功が最大のモチベーションになると気づいた。</p>
                         </div>
                     </div>
@@ -1084,6 +1151,44 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 参考リンク -->
+            <div class="y-section">
+                <div class="y-section-label"><span class="y-section-label-icon">🔗</span>参考リンク</div>
+                <div class="y-links-grid">
+                    <!-- よさこい動画 -->
+                    <a class="y-link-card" href="https://www.youtube.com/your-video" target="_blank">
+                        <div class="y-link-icon">🎬</div>
+                        <div class="y-link-body">
+                            <div class="y-link-category">よさこい</div>
+                            <div class="y-link-title">演舞動画</div>
+                            <div class="y-link-url">youtube.com</div>
+                        </div>
+                        <div class="y-link-arrow">→</div>
+                    </a>
+                    <!-- GitHubリポジトリ -->
+                    <a class="y-link-card" href="https://github.com/torannporinn4649" target="_blank">
+                        <div class="y-link-icon">💻</div>
+                        <div class="y-link-body">
+                            <div class="y-link-category">GitHub</div>
+                            <div class="y-link-title">リポジトリ一覧</div>
+                            <div class="y-link-url">github.com/torannporinn4649</div>
+                        </div>
+                        <div class="y-link-arrow">→</div>
+                    </a>
+                    <!-- 作ったツール・サービス -->
+                    <a class="y-link-card" href="https://your-tool-url.com" target="_blank">
+                        <div class="y-link-icon">🛠️</div>
+                        <div class="y-link-body">
+                            <div class="y-link-category">ツール / サービス</div>
+                            <div class="y-link-title">作成したサービス名</div>
+                            <div class="y-link-url">your-tool-url.com</div>
+                        </div>
+                        <div class="y-link-arrow">→</div>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 
