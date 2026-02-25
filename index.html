@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume – Yohei Konaka | Microsoft</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --ms-blue: #0078D4;
+            --ms-dark: #003B6F;
+            --text: #1a1a2e;
+            --muted: #5f6d7e;
+            --border: #d8e6f0;
+            --bg-light: #f0f7ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background: #e8eef4;
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* ====== PAGE ====== */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 0;
+        }
+
+        /* ====== HEADER ====== */
+        .resume-header {
+            background: linear-gradient(135deg, #003B6F 0%, #0078D4 100%);
+            color: white;
+            padding: 32px 40px 26px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #50E6FF, #0078D4, #003B6F);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .header-name-block {}
+
+        .name-jp {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            line-height: 1.1;
+        }
+
+        .name-en {
+            font-size: 14px;
+            letter-spacing: 0.25em;
+            opacity: 0.75;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .role-badge {
+            display: inline-block;
+            margin-top: 12px;
+            background: rgba(80, 230, 255, 0.2);
+            border: 1px solid rgba(80, 230, 255, 0.5);
+            border-radius: 20px;
+            padding: 5px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: #d0f0ff;
+        }
+
+        /* Contact inline in header */
+        .header-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: flex-end;
+            font-size: 10.5px;
+            opacity: 0.9;
+        }
+
+        .header-contact span {
+            letter-spacing: 0.02em;
+        }
+
+        /* ====== BODY ====== */
+        .resume-body {
+            padding: 28px 40px 32px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ms-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1.5px;
+            background: linear-gradient(90deg, var(--ms-blue), transparent);
+            border-radius: 1px;
+        }
+
+        /* ====== 基本情報テーブル ====== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 24px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 16px;
+        }
+
+        .info-item {}
+
+        .info-label {
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ms-blue);
+            opacity: 0.8;
+            margin-bottom: 1px;
+        }
+
+        .info-value {
+            font-size: 11px;
+            color: var(--text);
+        }
+
+        /* ====== Academic ====== */
+        .academic-block {
+            background: var(--bg-light);
+            border-left: 3px solid var(--ms-blue);
+            border-radius: 0 6px 6px 0;
+            padding: 10px 14px;
+        }
+
+        .academic-name {
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ms-dark);
+        }
+
+        .academic-sub {
+            font-size: 15px;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        .academic-year {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ms-blue);
+            margin-top: 4px;
+        }
+
+        .lab-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--ms-blue);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 12px;
+            border-radius: 12px;
+            margin-top: 6px;
+        }
+
+        /* ====== Skill / Language grid ====== */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .detail-list {
+            list-style: none;
+        }
+
+        .detail-list li {
+            position: relative;
+            padding-left: 14px;
+            font-size: 15px;
+            color: #2a3a4a;
+            margin-bottom: 5px;
+            line-height: 1.6;
+        }
+
+        .detail-list li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--ms-blue);
+            font-weight: 700;
+        }
+
+        /* sub-box */
+        .sub-box {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px 14px;
+            background: #fafcff;
+        }
+
+        .sub-box-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ms-blue);
+            margin-bottom: 8px;
+        }
+
+        /* ====== Experience cards ====== */
+        .exp-card {
+            position: relative;
+            padding: 12px 14px 12px 18px;
+            margin-bottom: 11px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            border-radius: 2px;
+        }
+
+        .exp-card.c-blue::before {
+            background: var(--ms-blue);
+        }
+
+        .exp-card.c-green::before {
+            background: #00B294;
+        }
+
+        .exp-card.c-orange::before {
+            background: #FF8C00;
+        }
+
+        .exp-card.c-teal::before {
+            background: #50E6FF;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .exp-org {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        .exp-role {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .exp-period {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ms-blue);
+            white-space: nowrap;
+            background: #EBF5FF;
+            border-radius: 10px;
+            padding: 3px 10px;
+            flex-shrink: 0;
+        }
+
+        .exp-body {
+            margin-top: 7px;
+            font-size: 15px;
+            color: #3a4a5a;
+            line-height: 1.7;
+        }
+
+        .exp-body ul {
+            padding-left: 14px;
+        }
+
+        .exp-body li {
+            margin-bottom: 4px;
+        }
+
+        .achievement {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: linear-gradient(135deg, #FFF3CD, #FFE89A);
+            border: 1px solid #F0C040;
+            border-radius: 12px;
+            padding: 3px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #7a5700;
+            margin-top: 6px;
+        }
+
+        /* ====== Why Tech Sales ====== */
+        .why-box {
+            background: linear-gradient(135deg, #f0f7ff, #e5f0fb);
+            border: 1px solid #c0d9f0;
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+
+        .why-box p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #2a3a4a;
+            margin-bottom: 9px;
+        }
+
+        .why-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ====== Research ====== */
+        .research-box {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #2a3a4a;
+            background: #f9fbff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 16px;
+        }
+
+        /* ====== Motivation ====== */
+        .motiv-block {
+            margin-bottom: 12px;
+        }
+
+        .motiv-lang {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: white;
+            background: var(--ms-blue);
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+
+        .motiv-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #2a3a4a;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 0 6px 6px 6px;
+            background: #fafcff;
+        }
+
+        .footer-note {
+            margin-top: 16px;
+            font-size: 8.5px;
+            color: var(--muted);
+            text-align: right;
+            border-top: 1px solid var(--border);
+            padding-top: 7px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- ========== HEADER ========== -->
+        <header class="resume-header">
+            <div class="header-top">
+                <div class="header-name-block">
+                    <div class="name-jp">小中 陽平</div>
+                    <div class="name-en">Yohei Konaka</div>
+                    <div class="role-badge">技術営業志望</div>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- ========== BODY ========== -->
+        <div class="resume-body">
+
+            <!-- 学歴 -->
+            <div class="section">
+                <div class="section-title">学歴</div>
+                <div class="academic-block">
+                    <div class="academic-name">大阪大学大学院</div>
+                    <div class="academic-sub">基礎工学研究科 システム創成専攻（博士前期課程）</div>
+                    <div class="academic-year">2028年3月 卒業予定</div>
+
+                </div>
+
+            </div>
+
+            <!-- 語学力・ITスキル -->
+            <div class="section">
+                <div class="section-title">語学力 / IT スキル</div>
+                <div class="two-col">
+                    <div class="sub-box">
+                        <div class="sub-box-title">語学力</div>
+                        <ul class="detail-list">
+                            <li>日本語：ネイティブ</li>
+                            <li>英語：日常会話レベル（TOEIC 660点）</li>
+                            <li>留学経験：なし</li>
+                        </ul>
+                    </div>
+                    <div class="sub-box">
+                        <div class="sub-box-title">IT スキル・プログラミング</div>
+                        <ul class="detail-list">
+                            <li>Python（研究・長期インターン）</li>
+                            <li>Firebase / Web アプリ開発（長期インターン）</li>
+                            <li>MATLAB・Java（授業）</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 経験・活動 -->
+            <div class="section">
+                <div class="section-title">課外活動・職務経験</div>
+
+                <!-- VEXUM -->
+                <div class="exp-card c-blue">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-org">株式会社 VEXUM（AI × DX 支援）</div>
+                            <div class="exp-role">長期インターン｜AI 人材常駐サービス「ARIS」にて企業支援</div>
+                        </div>
+                        <div class="exp-period">2025.09 – 現在</div>
+                    </div>
+                    <div class="exp-body">
+                        <ul>
+                            <li>クライアント企業に常駐し、<strong>生成 AI 導入支援・業務自動化・社内教育</strong>を一気通貫で提案・実行。ヒアリング→要件定義→実装→定着支援まで担当。
+                            </li>
+                            <li>クライアント先にて Firebase を用いた<strong>15 事業所の顧客・シフト情報一元管理 Web アプリ</strong>を単独で設計・開発・運用。</li>
+                            <li>Python で<strong>訪問看護向けシフト自動作成システム</strong>を開発し、現場の業務工数を大幅に削減。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 個人委託 -->
+                <div class="exp-card c-orange">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-org">個人委託（書類記入ナビ アプリ開発）</div>
+                            <div class="exp-role">要件定義〜リリースまでの一気通貫サポート</div>
+                        </div>
+                        <div class="exp-period">2025.10 – 2026.01</div>
+                    </div>
+                    <div class="exp-body">
+                        <ul>
+                            <li>知人からの依頼でヒアリング・提案・実装・納品を個人で担当。顧客の潜在ニーズを引き出す<strong>課題解決プロセス</strong>を体得。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- よさこいサークル -->
+                <div class="exp-card c-teal">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-org">大阪大学 お祭りダンスサークル「祭楽人」</div>
+                            <div class="exp-role">練習統括（マネジメント責任者）</div>
+                        </div>
+                        <div class="exp-period">2022.04 – 2024.09</div>
+                    </div>
+                    <div class="exp-body">
+                        <ul>
+                            <li>120 名が所属するよさこいサークルで<strong>練習設計・進捗管理を統括</strong>。</li>
+                            <li>課題を可視化し、練習メニューを抜本的に改革した結果、<strong>創設 23 年目で初の大会入賞</strong>を達成。</li>
+                        </ul>
+                        <div class="achievement">🏆 創設 23 年目・初の大会入賞</div>
+                    </div>
+                </div>
+
+                <!-- 社会人チーム -->
+                <div class="exp-card c-blue">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-org">社会人よさこいチーム「彩ノ京」</div>
+                            <div class="exp-role">メンバー</div>
+                        </div>
+                        <div class="exp-period">2025.03 – 現在</div>
+                    </div>
+                    <div class="exp-body">
+                        サークル引退後、社会人チームに加入。
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 志望動機 -->
+            <div class="section">
+                <div class="section-title">志望動機</div>
+
+                <div class="motiv-block">
+                    <div class="motiv-lang">日本語</div>
+                    <div class="motiv-text">
+                        <p>私が日本マイクロソフトで実現したい夢は、生成AIとクラウドの社会実装を通じて、あらゆる業界の現場からデータの分断をなくし、AIによる意思決定の支援を当たり前にすることで、人が本来の業務や人に向き合う時間に集中できる基盤を創ることである。深刻な労働力不足を抱える日本において、テクノロジーで業務と情報の流れを再設計し、働く人と顧客の双方をエンパワーしたいと考えている。
+                        </p>
+                        <p>この夢の原点は、長期インターンで介護会社に常駐した経験にある。現場では人手不足の中でも職員が利用者に誠実に向き合っていたが、手書きの記録や転記に膨大な時間が奪われ、情報共有の分断が起きていた。私は課題解決のため、情報の一元管理ツールの導入を提案した。しかし当初、ICTに不慣れな方に対して現場のITスキルを度外視した高度な運用ルールを提案してしまい、結果としてシステムが全く現場に定着しないという失敗を経験した。
+                        </p>
+                        <p>ここで私は自身の未熟さを認め、アプローチを根本から変えた。現場の声を傾聴し、運用を小さく試し、手順を簡素化したマニュアルを作成して理解度に合わせて伴走したのである。結果として間接業務が削減され、職員から利用者との時間が余裕を持って以前より多く取れるようになったと感謝された。
+                        </p>
+                        <p>しかし同時に、私は一つの限界も痛感した。情報を一カ所に統合しただけでは、集約された大量の記録から今日の最適なケアを判断するために、結局ベテラン職員の経験と時間に依存してしまったのである。この経験から、現場の真の課題は単なる非効率ではなく、分断されたデータと属人的な意思決定にあると学んだ。そしてこの構造は、介護に限らず日本のあらゆる産業の現場に共通する普遍的な課題であると確信している。
+                        </p>
+                        <p>だからこそ、分断されたデータを単にまとめるだけでなく、AIと連携させて現場の意思決定を支援し、新たな価値を創出することがあらゆる産業の変革に不可欠だと考える。
+                        </p>
+                        <p>数あるテクノロジー企業の中でも日本マイクロソフトには、AzureやMicrosoft
+                            Fabricによって組織に蔓延するデータの孤立をなくし、統合されたデータを基盤にCopilotをはじめとした高度なAIを垣根なく連携させる圧倒的なプラットフォームがある。この一気通貫の環境と、失敗から学ぶ「Growth
+                            Mindset」の文化があるからこそ、技術営業職として私の夢を実現できると確信している。
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="motiv-block">
+                    <div class="motiv-lang">English</div>
+                    <div class="motiv-text">
+                        ※ Please write your motivation in English here.<br>
+                        Theme: What is your dream that you want to realize at Microsoft?
+                    </div>
+                </div>
+            </div>
+
+            <!-- なぜ技術営業職か -->
+            <div class="section">
+                <div class="section-title">なぜ技術営業職か</div>
+                <div class="why-box">
+                    <p>私が技術営業職を志望する理由は、目まぐるしく進化するIT技術と顧客を繋ぐ架け橋となり、テクノロジーの価値を社会実装することで最大のインパクトを生み出したいからである。
+                        優れたIT技術は開発されるだけでは社会を変えられない。顧客の潜在的な課題を汲み取り、技術をビジネス上の価値に言い換えて提案・伴走して初めて、社会に大きなインパクトを残すことができると考える。ゆえに私は、自ら最前線に立ち、技術力をもって顧客のビジネス変革を牽引する技術営業職に強く惹かれている。
+                    </p>
+                    <p>私がこのように他者の成功に貢献し、インパクトを与えたいと考える原動力は、よさこいチームで練習統括を務めた経験にある。当初の私は自分が大会で活躍したいという自分本位な目的で活動しており、モチベーションに波があった。しかし、統括としてチームメンバーの努力を成果に結びつけるという組織全体の目標へ視座を変えたことで変化が起きた。目標が自分軸から他人軸へと変わったことで、いかなる困難な状況でもモチベーションが下がらなくなり、周囲のために自分が果たすべき役割に100%集中できるようになった。そして結果的に、個人の活躍を目指していた時よりも遥かに大きなやりがいと成果を得ることができたのである。
+                    </p>
+                    <p>この経験から、私は他者の成功に貢献し、周囲をエンパワーすることに自身の最大の喜びとモチベーションの源泉があると確信している。</p>
+                    <p>日本マイクロソフトの技術営業職として、この他者のために尽くす力を最大限に発揮したい。常に最新の技術情報をキャッチアップし、社内外の多様なメンバーを巻き込みながら顧客の成功に並走することで、社会により大きなインパクトを生み出したいと考える。
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-note">2026年2月現在 ／ As of February 2026</div>
+        </div><!-- /resume-body -->
+
+    </div><!-- /page -->
+
+    <!-- ===== 2ページ目: よさこい紹介 ===== -->
+    <style>
+        /* ページ区切り */
+        .page {
+            break-after: page;
+            page-break-after: always;
+        }
+
+        .yosakoi-page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        /* ====== HEADER (1ページ目と同じ配色) ====== */
+        .y-hero {
+            background: linear-gradient(135deg, #003B6F 0%, #0078D4 100%);
+            color: white;
+            padding: 32px 40px 26px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .y-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #50E6FF, #0078D4, #003B6F);
+        }
+
+        .y-hero-tag {
+            display: inline-block;
+            background: rgba(80, 230, 255, 0.2);
+            border: 1px solid rgba(80, 230, 255, 0.5);
+            border-radius: 20px;
+            padding: 5px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: #d0f0ff;
+            margin-bottom: 12px;
+        }
+
+        .y-hero h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .y-hero-sub {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 14px;
+            letter-spacing: 0.02em;
+        }
+
+        .y-hero-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .y-hero-badge {
+            display: inline-block;
+            background: rgba(80, 230, 255, 0.15);
+            border: 1px solid rgba(80, 230, 255, 0.4);
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-size: 12px;
+            color: #d0f0ff;
+        }
+
+        /* ====== BODY ====== */
+        .y-container {
+            padding: 24px 40px 28px;
+        }
+
+        .y-section {
+            margin-bottom: 22px;
+        }
+
+        /* Section title (1ページ目の .section-title と同じ) */
+        .y-section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ms-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .y-section-label::after {
+            content: '';
+            flex: 1;
+            height: 1.5px;
+            background: linear-gradient(90deg, var(--ms-blue), transparent);
+            border-radius: 1px;
+        }
+
+        .y-section-label-icon {
+            font-size: 14px;
+        }
+
+        /* ====== Overview cards ====== */
+        .y-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .y-overview-card {
+            background: var(--bg-light);
+            border-radius: 6px;
+            padding: 14px;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--ms-blue);
+        }
+
+        .y-overview-card .num {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--ms-blue);
+            line-height: 1.1;
+        }
+
+        .y-overview-card .unit {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .y-overview-card .label {
+            font-size: 11px;
+            color: var(--text);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* ====== Gallery ====== */
+        .y-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .y-gallery-item {
+            border-radius: 6px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--border);
+        }
+
+        .y-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ====== Timeline ====== */
+        .y-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .y-role-item {
+            display: flex;
+            gap: 14px;
+            position: relative;
+        }
+
+        .y-role-item::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 32px;
+            bottom: -8px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--ms-blue), #50E6FF);
+        }
+
+        .y-role-item:last-child::before {
+            display: none;
+        }
+
+        .y-role-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #003B6F, #0078D4);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            box-shadow: 0 2px 6px rgba(0, 120, 212, 0.3);
+            margin-top: 2px;
+        }
+
+        .y-role-content {
+            background: var(--bg-light);
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            flex: 1;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--ms-blue);
+        }
+
+        .y-role-year {
+            font-size: 10px;
+            color: var(--ms-blue);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .y-role-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .y-role-desc {
+            font-size: 13px;
+            color: #3a4a5a;
+            line-height: 1.7;
+        }
+
+        /* ====== Achievement box (1ページ目の achievement タグと同系統) ====== */
+        .y-achievement-box {
+            background: linear-gradient(135deg, #f0f7ff, #e5f0fb);
+            border: 1px solid #c0d9f0;
+            border-radius: 8px;
+            padding: 16px 20px;
+            position: relative;
+        }
+
+        .y-achievement-box::before {
+            content: '🏆';
+            font-size: 50px;
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            opacity: 0.12;
+        }
+
+        .y-achievement-box h3 {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ms-blue);
+            margin-bottom: 8px;
+        }
+
+        .y-achievement-box .main {
+            font-size: 19px;
+            font-weight: 900;
+            color: var(--ms-dark);
+            margin-bottom: 8px;
+        }
+
+        .y-achievement-box p {
+            font-size: 13px;
+            color: #2a3a4a;
+            line-height: 1.75;
+        }
+
+        /* ====== Skill cards ====== */
+        .y-skill-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .y-skill-card {
+            background: var(--bg-light);
+            border-radius: 6px;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .y-skill-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .y-skill-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .y-skill-card p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+    </style>
+
+
+    <div class="yosakoi-page">
+        <!-- HERO -->
+        <div class="y-hero">
+            <div class="y-hero-tag">課外活動 / Extracurricular Activity</div>
+            <h1>よさこい</h1>
+            <p class="y-hero-sub">大学1回生〜4回生</p>
+            <div class="y-hero-badges">
+                <span class="y-hero-badge">📅 4年間継続</span>
+                <span class="y-hero-badge">👥 120名規模チームの統括</span>
+                <span class="y-hero-badge">🏆 創設23年目・初の大会入賞</span>
+            </div>
+        </div>
+
+        <div class="y-container">
+            <!-- 活動概要 -->
+            <div class="y-section">
+                <div class="y-section-label">
+                    <span class="y-section-label-icon">📊</span> 活動概要
+                </div>
+                <div class="y-overview-grid">
+                    <div class="y-overview-card">
+                        <div class="num">120</div>
+                        <div class="unit">名</div>
+                        <div class="label">サークル総人数</div>
+                    </div>
+                    <div class="y-overview-card">
+                        <div class="num">23</div>
+                        <div class="unit">年目</div>
+                        <div class="label">創設からの年数</div>
+                    </div>
+                    <div class="y-overview-card">
+                        <div class="num">初</div>
+                        <div class="unit">大会入賞</div>
+                        <div class="label">私の代で達成</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- フォトギャラリー -->
+            <div class="y-section">
+                <div class="y-section-label">
+                    <span class="y-section-label-icon">📸</span> フォトギャラリー
+                </div>
+                <div class="y-gallery" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="y-gallery-item">
+                        <img src="yosakoi1.jpg" alt="チームメンバーとの集合写真" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="y-gallery-item">
+                        <img src="yosakoi2.png" alt="大会本番の演舞" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="y-gallery-item">
+                        <img src="yosakoi3.jpg" alt="よさこい演舞" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="y-gallery-item">
+                        <img src="yosakoi4.jpg" alt="演舞の様子"
+                            style="width:100%;height:100%;object-fit:cover;object-position:center 75%;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 活動の歩み -->
+            <div class="y-section">
+                <div class="y-section-label">
+                    <span class="y-section-label-icon">📋</span> 活動の歩み
+                </div>
+                <div class="y-timeline">
+                    <div class="y-role-item">
+                        <div class="y-role-dot">🎐</div>
+                        <div class="y-role-content">
+                            <div class="y-role-year">1〜2回生</div>
+                            <div class="y-role-title">踊り手として舞台に立つ</div>
+                            <div class="y-role-desc">
+                                よさこいの基礎を学びながら、大会・地域イベントなど多数の舞台に出演。チームとして演舞を作り上げる達成感を経験。当初は「自分が活躍したい」という気持ちが強かったが、チームへの視座へと変化していった。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="y-role-item">
+                        <div class="y-role-dot">📝</div>
+                        <div class="y-role-content">
+                            <div class="y-role-year">3〜4回生</div>
+                            <div class="y-role-title">練習統括として組織をリード</div>
+                            <div class="y-role-desc">
+                                120名規模のチームの<strong>練習設計・進捗管理を統括</strong>。課題を可視化し、練習メニューを抜本的に改革。目標を自分軸から他者軸へ転換したことでモチベーションが安定し、結果として創設23年目にして<strong>初の大会入賞</strong>を達成。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="y-role-item">
+                        <div class="y-role-dot">🌸</div>
+                        <div class="y-role-content">
+                            <div class="y-role-year">卒業後</div>
+                            <div class="y-role-title">社会人チームへ加入</div>
+                            <div class="y-role-desc">サークル引退後も彩ノ京の社会人チームに加入し、学生・社会人が混在する環境で協力する経験を積んでいる。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 成果 -->
+            <div class="y-section">
+                <div class="y-section-label">
+                    <span class="y-section-label-icon">🏆</span> 成果・実績
+                </div>
+                <div class="y-achievement-box">
+                    <h3>ACHIEVEMENT</h3>
+                    <div class="main">🏆 創設 23 年目・初の大会入賞</div>
+                    <p>課題を可視化し、練習メニューを抜本的に改革した結果、サークル創設以来23年間一度も達成できなかった大会入賞をついに実現。「チームメンバーの努力を成果に結びつける」という視座への転換が生んだ成果。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 得たスキル -->
+            <div class="y-section">
+                <div class="y-section-label">
+                    <span class="y-section-label-icon">💡</span> この経験から得たもの
+                </div>
+                <div class="y-skill-grid">
+                    <div class="y-skill-card">
+                        <div class="y-skill-icon">🎯</div>
+                        <div>
+                            <h4>課題の可視化と構造化</h4>
+                            <p>練習の問題点を客観的に分析し、優先度をつけて改善策を立案・実行するPDCAを経験。</p>
+                        </div>
+                    </div>
+                    <div class="y-skill-card">
+                        <div class="y-skill-icon">👥</div>
+                        <div>
+                            <h4>120名のチームマネジメント</h4>
+                            <p>大人数の多様な意見を取りまとめ、共通のゴールへ向けて束ねるリーダーシップを発揮。</p>
+                        </div>
+                    </div>
+                    <div class="y-skill-card">
+                        <div class="y-skill-icon">🔄</div>
+                        <div>
+                            <h4>「他者のために尽くす」思考</h4>
+                            <p>自分軸から他者軸へ視座を転換。チームの成功が最大のモチベーションになると気づいた。</p>
+                        </div>
+                    </div>
+                    <div class="y-skill-card">
+                        <div class="y-skill-icon">📈</div>
+                        <div>
+                            <h4>組織変革の実行力</h4>
+                            <p>長年の慣習を変える難しさを経験しながらも、データと対話で変革を実現する力を培った。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

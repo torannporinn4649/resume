@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よさこい活動紹介 | 小中 陽平</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --red: #c0392b;
+            --red-light: #e74c3c;
+            --gold: #d4a017;
+            --dark: #1a1a2e;
+            --dark2: #16213e;
+            --mid: #0f3460;
+            --accent: #e94560;
+            --text: #2d2d2d;
+            --muted: #888;
+            --border: #e0e0e0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background: #f5f0eb;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a2e 0%, #c0392b 50%, #d4a017 100%);
+            color: white;
+            padding: 80px 40px 60px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 4px 16px;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            opacity: 0.85;
+            margin-bottom: 24px;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 6px 18px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 56px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .section-label-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--red), var(--gold));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .section-label h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* ===== OVERVIEW CARDS ===== */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .overview-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            border-top: 3px solid var(--red);
+        }
+
+        .overview-card .num {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--red);
+            line-height: 1.1;
+        }
+
+        .overview-card .unit {
+            font-size: 14px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .overview-card .label {
+            font-size: 13px;
+            color: var(--text);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* ===== PHOTO GALLERY ===== */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: #ddd;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 20px 10px 10px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .caption {
+            opacity: 1;
+        }
+
+        /* 写真プレースホルダー */
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0e8e8, #e8d5b5);
+            color: #999;
+            font-size: 13px;
+            text-align: center;
+            padding: 12px;
+            gap: 8px;
+        }
+
+        .photo-placeholder .icon {
+            font-size: 28px;
+        }
+
+        /* ===== ROLE TIMELINE ===== */
+        .role-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .role-item {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+
+        .role-item::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 40px;
+            bottom: -8px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--red), var(--gold));
+        }
+
+        .role-item:last-child::before {
+            display: none;
+        }
+
+        .role-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--red), var(--red-light));
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 2px 8px rgba(192, 57, 43, 0.3);
+            margin-top: 4px;
+        }
+
+        .role-content {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            flex: 1;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            border-left: 3px solid var(--red);
+        }
+
+        .role-year {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .role-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .role-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* ===== ACHIEVEMENT ===== */
+        .achievement-box {
+            background: linear-gradient(135deg, #1a1a2e, #c0392b);
+            border-radius: 16px;
+            padding: 32px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-box::before {
+            content: '🏆';
+            font-size: 80px;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            opacity: 0.15;
+        }
+
+        .achievement-box h3 {
+            font-size: 15px;
+            opacity: 0.75;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .achievement-box .main {
+            font-size: 26px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .achievement-box p {
+            font-size: 14px;
+            opacity: 0.85;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== SKILLS FROM YOSAKOI ===== */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .skill-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .skill-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .skill-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER NAV ===== */
+        .footer-nav {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-nav a {
+            display: inline-block;
+            background: var(--dark);
+            color: white;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .footer-nav a:hover {
+            background: var(--red);
+        }
+
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HERO ===== -->
+    <div class="hero">
+        <div class="hero-tag">課外活動 / Extracurricular</div>
+        <h1>🎐 よさこい</h1>
+        <p class="hero-sub">大阪大学 踊り子隊「彩ノ京」</p>
+        <div class="hero-badges">
+            <span class="hero-badge">📅 大学1回生〜4回生</span>
+            <span class="hero-badge">👥 120名規模のサークル</span>
+            <span class="hero-badge">🏆 創設23年目・初の大会入賞</span>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- ===== OVERVIEW ===== -->
+        <div class="section">
+            <div class="section-label">
+                <div class="section-label-icon">📊</div>
+                <h2>活動概要</h2>
+            </div>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="num">120</div>
+                    <div class="unit">名</div>
+                    <div class="label">サークル総人数</div>
+                </div>
+                <div class="overview-card">
+                    <div class="num">23</div>
+                    <div class="unit">年目</div>
+                    <div class="label">創設からの年数</div>
+                </div>
+                <div class="overview-card">
+                    <div class="num">初</div>
+                    <div class="unit">大会入賞</div>
+                    <div class="label">私の代で達成</div>
+                </div>
+            </div>
+            <p style="font-size:15px; color:#444; line-height:1.8;">
+                大阪大学のよさこいサークル「踊り子隊 彩ノ京」で4年間活動。
+                1〜2回生は踊り手として舞台に立ち、3回生以降は<strong>練習統括</strong>としてチーム全体の練習設計・進捗管理を担当した。
+                創設23年目にして初の大会入賞を達成し、サークル引退後は社会人チームにも加入。
+            </p>
+        </div>
+
+        <!-- ===== PHOTO GALLERY ===== -->
+        <div class="section">
+            <div class="section-label">
+                <div class="section-label-icon">📸</div>
+                <h2>フォトギャラリー</h2>
+            </div>
+            <div class="gallery">
+                <!-- 写真1: ここに実際の写真ファイルパスを入れてください -->
+                <div class="gallery-item">
+                    <div class="photo-placeholder">
+                        <div class="icon">📷</div>
+                        <div>写真を追加<br><small>img src="" に<br>パスを入力</small></div>
+                    </div>
+                    <div class="caption">大会本番</div>
+                </div>
+                <!-- 写真2 -->
+                <div class="gallery-item">
+                    <div class="photo-placeholder">
+                        <div class="icon">📷</div>
+                        <div>写真を追加<br><small>img src="" に<br>パスを入力</small></div>
+                    </div>
+                    <div class="caption">練習風景</div>
+                </div>
+                <!-- 写真3 -->
+                <div class="gallery-item">
+                    <div class="photo-placeholder">
+                        <div class="icon">📷</div>
+                        <div>写真を追加<br><small>img src="" に<br>パスを入力</small></div>
+                    </div>
+                    <div class="caption">チームメンバーと</div>
+                </div>
+                <!-- 写真4 -->
+                <div class="gallery-item">
+                    <div class="photo-placeholder">
+                        <div class="icon">📷</div>
+                        <div>写真を追加<br><small>img src="" に<br>パスを入力</small></div>
+                    </div>
+                    <div class="caption">衣装・演出</div>
+                </div>
+                <!-- 写真5 -->
+                <div class="gallery-item">
+                    <div class="photo-placeholder">
+                        <div class="icon">📷</div>
+                        <div>写真を追加<br><small>img src="" に<br>パスを入力</small></div>
+                    </div>
+                    <div class="caption">表彰式</div>
+                </div>
+                <!-- 写真6 -->
+                <div class="gallery-item">
+                    <div class="photo-placeholder">
+                        <div class="icon">📷</div>
+                        <div>写真を追加<br><small>img src="" に<br>パスを入力</small></div>
+                    </div>
+                    <div class="caption">社会人チーム</div>
+                </div>
+            </div>
+            <p style="font-size:12px; color:var(--muted); margin-top:12px; text-align:center;">
+                ※ 写真を追加するには、このHTMLファイルの各 &lt;div class="gallery-item"&gt; 内の photo-placeholder を &lt;img src="写真のパス"
+                alt="説明"&gt; に置き換えてください
+            </p>
+        </div>
+
+        <!-- ===== ROLE & ACTIVITIES ===== -->
+        <div class="section">
+            <div class="section-label">
+                <div class="section-label-icon">📋</div>
+                <h2>活動の歩み</h2>
+            </div>
+            <div class="role-timeline">
+                <div class="role-item">
+                    <div class="role-dot">🎐</div>
+                    <div class="role-content">
+                        <div class="role-year">1〜2回生</div>
+                        <div class="role-title">踊り手として舞台に立つ</div>
+                        <div class="role-desc">
+                            よさこいの基礎を学びながら、大会・地域イベントなど多数の舞台に出演。
+                            チームとして一つの演舞を作り上げる達成感を経験する。
+                            当初は「自分が活躍したい」という気持ちが強かったが、チームへの視座へと変化していった。
+                        </div>
+                    </div>
+                </div>
+                <div class="role-item">
+                    <div class="role-dot">📝</div>
+                    <div class="role-content">
+                        <div class="role-year">3〜4回生</div>
+                        <div class="role-title">練習統括として組織をリード</div>
+                        <div class="role-desc">
+                            120名規模のチームの<strong>練習設計・進捗管理を統括</strong>。
+                            課題を可視化し、練習メニューを抜本的に改革。
+                            個人の「活躍したい」から「チームの成果」へ視座を転換したことで、
+                            いかなる困難でもモチベーションが下がらなくなった。
+                            結果として、創設23年目にして<strong>初の大会入賞</strong>を達成。
+                        </div>
+                    </div>
+                </div>
+                <div class="role-item">
+                    <div class="role-dot">🌸</div>
+                    <div class="role-content">
+                        <div class="role-year">卒業後</div>
+                        <div class="role-title">社会人チームへ加入</div>
+                        <div class="role-desc">
+                            サークル引退後も彩ノ京の社会人チームに加入し、よさこいを継続。
+                            学生・社会人が混在する環境で、異なる立場の人々と協力する経験を積んでいる。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ACHIEVEMENT ===== -->
+        <div class="section">
+            <div class="section-label">
+                <div class="section-label-icon">🏆</div>
+                <h2>成果・実績</h2>
+            </div>
+            <div class="achievement-box">
+                <h3>ACHIEVEMENT</h3>
+                <div class="main">🏆 創設 23 年目・初の大会入賞</div>
+                <p>
+                    課題を可視化し、練習メニューを抜本的に改革した結果、
+                    サークル創設以来23年間一度も達成できなかった大会入賞をついに実現。
+                    「チームメンバーの努力を成果に結びつける」という視座への転換が生んだ成果。
+                </p>
+            </div>
+        </div>
+
+        <!-- ===== SKILLS GAINED ===== -->
+        <div class="section">
+            <div class="section-label">
+                <div class="section-label-icon">💡</div>
+                <h2>この経験から得たもの</h2>
+            </div>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <div>
+                        <h4>課題の可視化と構造化</h4>
+                        <p>練習の問題点を客観的に分析し、優先度をつけて改善策を立案・実行するPDCAを経験。</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">👥</div>
+                    <div>
+                        <h4>120名のチームマネジメント</h4>
+                        <p>大人数の多様な意見を取りまとめ、共通のゴールへ向けて束ねるリーダーシップを発揮。</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔄</div>
+                    <div>
+                        <h4>「他者のために尽くす」思考</h4>
+                        <p>自分軸から他者軸へ視座を転換。チームの成功が最大のモチベーションになると気づいた。</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📈</div>
+                    <div>
+                        <h4>組織変革の実行力</h4>
+                        <p>長年の慣習を変える難しさを経験しながらも、データと対話で変革を実現する力を培った。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FOOTER NAV ===== -->
+        <div class="footer-nav">
+            <a href="index.html">← 履歴書に戻る</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
