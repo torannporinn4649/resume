@@ -28,8 +28,8 @@
             font-family: 'Inter', 'Noto Sans JP', sans-serif;
             background: #e8eef4;
             color: var(--text);
-            line-height: 1.7;
-            font-size: 16px;
+            line-height: 1.5;
+            font-size: 15px;
         }
 
         /* ====== PAGE ====== */
@@ -39,13 +39,14 @@
             margin: 0 auto;
             background: #fff;
             padding: 0;
+            overflow: hidden;
         }
 
         /* ====== HEADER ====== */
         .resume-header {
             background: linear-gradient(135deg, #003B6F 0%, #0078D4 100%);
             color: white;
-            padding: 32px 40px 26px;
+            padding: 18px 36px 14px;
             position: relative;
             overflow: hidden;
         }
@@ -60,42 +61,111 @@
             background: linear-gradient(90deg, #50E6FF, #0078D4, #003B6F);
         }
 
+        .resume-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 20px;
+            position: relative;
+            z-index: 1;
         }
 
-        .header-name-block {}
+        .header-name-block {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .name-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
 
         .name-jp {
             font-family: 'Noto Sans JP', sans-serif;
-            font-size: 38px;
+            font-size: 30px;
             font-weight: 700;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             line-height: 1.1;
         }
 
         .name-en {
-            font-size: 14px;
+            font-size: 12px;
             letter-spacing: 0.25em;
             opacity: 0.75;
             text-transform: uppercase;
-            margin-top: 5px;
         }
 
         .role-badge {
             display: inline-block;
-            margin-top: 12px;
-            background: rgba(80, 230, 255, 0.2);
-            border: 1px solid rgba(80, 230, 255, 0.5);
+            background: linear-gradient(135deg, rgba(80, 230, 255, 0.2), rgba(0, 120, 212, 0.4));
+            border: 1px solid rgba(80, 230, 255, 0.6);
             border-radius: 20px;
-            padding: 5px 16px;
+            padding: 3px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ====== Header Highlights ====== */
+        .header-highlights {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(80, 230, 255, 0.25);
+            border-radius: 8px;
+            padding: 6px 14px;
+            flex: 1;
+        }
+
+        .header-highlight-item .hl-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .header-highlight-item .hl-text {
+            font-size: 10.5px;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .header-highlight-item .hl-text strong {
+            display: block;
+            font-size: 12px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .header-tagline {
             font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: #d0f0ff;
+            font-weight: 500;
+            color: rgba(208, 240, 255, 0.9);
+            margin-top: 6px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.02em;
+            border-left: 2px solid rgba(80, 230, 255, 0.6);
+            padding-left: 10px;
         }
 
         /* Contact inline in header */
@@ -114,24 +184,24 @@
 
         /* ====== BODY ====== */
         .resume-body {
-            padding: 28px 40px 32px;
+            padding: 14px 36px 16px;
         }
 
         /* Section */
         .section {
-            margin-bottom: 24px;
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--ms-blue);
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
+            gap: 6px;
+            margin-bottom: 6px;
         }
 
         .section-title::after {
@@ -140,20 +210,19 @@
             height: 1.5px;
             background: linear-gradient(90deg, var(--ms-blue), transparent);
             border-radius: 1px;
+            opacity: 0.5;
         }
 
         /* ====== 基本情報テーブル ====== */
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6px 24px;
+            gap: 4px 20px;
             background: var(--bg-light);
             border: 1px solid var(--border);
             border-radius: 6px;
-            padding: 12px 16px;
+            padding: 8px 14px;
         }
-
-        .info-item {}
 
         .info-label {
             font-size: 8px;
@@ -175,26 +244,26 @@
             background: var(--bg-light);
             border-left: 3px solid var(--ms-blue);
             border-radius: 0 6px 6px 0;
-            padding: 10px 14px;
+            padding: 7px 12px;
         }
 
         .academic-name {
             font-weight: 700;
-            font-size: 17px;
+            font-size: 14px;
             color: var(--ms-dark);
         }
 
         .academic-sub {
-            font-size: 15px;
+            font-size: 12px;
             color: var(--muted);
-            margin-top: 3px;
+            margin-top: 1px;
         }
 
         .academic-year {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--ms-blue);
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
         .lab-tag {
@@ -214,7 +283,7 @@
         .two-col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 8px;
         }
 
         .detail-list {
@@ -223,11 +292,11 @@
 
         .detail-list li {
             position: relative;
-            padding-left: 14px;
-            font-size: 15px;
+            padding-left: 12px;
+            font-size: 12px;
             color: #2a3a4a;
-            margin-bottom: 5px;
-            line-height: 1.6;
+            margin-bottom: 2px;
+            line-height: 1.5;
         }
 
         .detail-list li::before {
@@ -242,26 +311,32 @@
         .sub-box {
             border: 1px solid var(--border);
             border-radius: 6px;
-            padding: 10px 14px;
+            padding: 7px 12px;
             background: #fafcff;
         }
 
         .sub-box-title {
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--ms-blue);
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         /* ====== Experience cards ====== */
         .exp-card {
             position: relative;
-            padding: 12px 14px 12px 18px;
-            margin-bottom: 11px;
-            border-radius: 6px;
+            padding: 6px 12px 6px 14px;
+            margin-bottom: 6px;
+            border-radius: 5px;
             border: 1px solid var(--border);
+            background: #ffffff;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .exp-card:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .exp-card::before {
@@ -299,40 +374,40 @@
 
         .exp-org {
             font-weight: 700;
-            font-size: 16px;
+            font-size: 13px;
             color: var(--text);
         }
 
         .exp-role {
-            font-size: 13px;
+            font-size: 11px;
             color: var(--muted);
-            margin-top: 2px;
+            margin-top: 1px;
         }
 
         .exp-period {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--ms-blue);
             white-space: nowrap;
             background: #EBF5FF;
             border-radius: 10px;
-            padding: 3px 10px;
+            padding: 2px 8px;
             flex-shrink: 0;
         }
 
         .exp-body {
-            margin-top: 7px;
-            font-size: 15px;
+            margin-top: 4px;
+            font-size: 12px;
             color: #3a4a5a;
-            line-height: 1.7;
+            line-height: 1.55;
         }
 
         .exp-body ul {
-            padding-left: 14px;
+            padding-left: 12px;
         }
 
         .exp-body li {
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .achievement {
@@ -342,26 +417,26 @@
             background: linear-gradient(135deg, #FFF3CD, #FFE89A);
             border: 1px solid #F0C040;
             border-radius: 12px;
-            padding: 3px 12px;
-            font-size: 12px;
+            padding: 2px 10px;
+            font-size: 11px;
             font-weight: 700;
             color: #7a5700;
-            margin-top: 6px;
+            margin-top: 4px;
         }
 
         /* ====== Why Tech Sales ====== */
         .why-box {
             background: linear-gradient(135deg, #f0f7ff, #e5f0fb);
             border: 1px solid #c0d9f0;
-            border-radius: 8px;
-            padding: 12px 16px;
+            border-radius: 6px;
+            padding: 8px 14px;
         }
 
         .why-box p {
-            font-size: 15px;
-            line-height: 1.8;
+            font-size: 12px;
+            line-height: 1.6;
             color: #2a3a4a;
-            margin-bottom: 9px;
+            margin-bottom: 5px;
         }
 
         .why-box p:last-child {
@@ -370,18 +445,18 @@
 
         /* ====== Research ====== */
         .research-box {
-            font-size: 15px;
-            line-height: 1.8;
+            font-size: 12px;
+            line-height: 1.6;
             color: #2a3a4a;
             background: #f9fbff;
             border: 1px solid var(--border);
             border-radius: 6px;
-            padding: 12px 16px;
+            padding: 8px 14px;
         }
 
         /* ====== Motivation ====== */
         .motiv-block {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .motiv-lang {
@@ -398,22 +473,22 @@
         }
 
         .motiv-text {
-            font-size: 15px;
-            line-height: 1.8;
+            font-size: 12px;
+            line-height: 1.6;
             color: #2a3a4a;
-            padding: 10px 14px;
+            padding: 7px 12px;
             border: 1px solid var(--border);
             border-radius: 0 6px 6px 6px;
             background: #fafcff;
         }
 
         .footer-note {
-            margin-top: 16px;
-            font-size: 8.5px;
+            margin-top: 8px;
+            font-size: 8px;
             color: var(--muted);
             text-align: right;
             border-top: 1px solid var(--border);
-            padding-top: 7px;
+            padding-top: 4px;
         }
 
         @media print {
@@ -442,48 +517,57 @@
         <header class="resume-header">
             <div class="header-top">
                 <div class="header-name-block">
-                    <div class="name-jp">小中 陽平</div>
-                    <div class="name-en">Yohei Konaka</div>
-                    <div class="role-badge">技術営業志望</div>
+                    <div class="name-wrapper">
+                        <div class="name-jp">小中 陽平</div>
+                        <div class="role-badge">技術営業志望</div>
+                    </div>
+                    <div class="name-en">Yohei Konaka ｜ 大阪大学大学院 基礎工学研究科 M1</div>
                 </div>
-
+            </div>
+            <div class="header-tagline">技術を現場の価値に翻訳し、人が人に向き合う時間をつくる</div>
+            <div class="header-highlights">
+                <div class="header-highlight-item">
+                    <div class="hl-icon">🤖</div>
+                    <div class="hl-text"><strong>生成AI導入・業務自動化</strong>クライアント常駐で提案〜定着支援</div>
+                </div>
+                <div class="header-highlight-item">
+                    <div class="hl-icon">💻</div>
+                    <div class="hl-text"><strong>Webアプリ設計・開発・運用</strong>15事業所の情報一元管理を実現</div>
+                </div>
+                <div class="header-highlight-item">
+                    <div class="hl-icon">🏆</div>
+                    <div class="hl-text"><strong>120名チーム統括・大会初入賞</strong>データと対話で23年来の壁を突破</div>
+                </div>
             </div>
         </header>
 
         <!-- ========== BODY ========== -->
         <div class="resume-body">
 
-            <!-- 学歴 -->
+            <!-- プロフィール要約 (学歴・語学力・ITスキル) -->
             <div class="section">
-                <div class="section-title">学歴</div>
-                <div class="academic-block">
-                    <div class="academic-name">大阪大学大学院</div>
-                    <div class="academic-sub">基礎工学研究科 システム創成専攻（博士前期課程）</div>
-                    <div class="academic-year">2028年3月 卒業予定</div>
-
-                </div>
-
-            </div>
-
-            <!-- 語学力・ITスキル -->
-            <div class="section">
-                <div class="section-title">語学力 / IT スキル</div>
-                <div class="two-col">
+                <div style="display: grid; grid-template-columns: 1fr 1.15fr 1.15fr; gap: 8px;">
+                    <div class="sub-box">
+                        <div class="sub-box-title">学歴</div>
+                        <div style="font-weight: 700; font-size: 13px; color: var(--text);">大阪大学大学院</div>
+                        <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">基礎工学研究科 システム創成専攻</div>
+                        <div style="font-size: 11px; font-weight: 600; color: var(--ms-blue); margin-top: 5px;">2028.03
+                            卒業予定</div>
+                    </div>
                     <div class="sub-box">
                         <div class="sub-box-title">語学力</div>
                         <ul class="detail-list">
                             <li>日本語：ネイティブ</li>
-                            <li>英語：日常会話レベル（TOEIC 660点）</li>
+                            <li>英語：日常会話（TOEIC 660点）</li>
                             <li>留学経験：なし</li>
                         </ul>
                     </div>
                     <div class="sub-box">
-                        <div class="sub-box-title">IT スキル・プログラミング</div>
+                        <div class="sub-box-title">IT スキル</div>
                         <ul class="detail-list">
-                            <li>Python（研究・長期インターン）</li>
-                            <li>Firebase / Web アプリ開発（長期インターン）</li>
+                            <li>Python（研究・実務）</li>
+                            <li>Firebase / Webアプリ（実務）</li>
                             <li>MATLAB・Java（授業）</li>
-
                         </ul>
                     </div>
                 </div>
@@ -596,7 +680,7 @@
                     </div>
                 </div>
 
-                <div class="why-box" style="margin-top:16px;">
+                <div class="why-box" style="margin-top:8px;">
                     <div class="section-title" style="margin-bottom:12px;">なぜ技術営業職か</div>
                     <p>私が技術営業職を志望する理由は、目まぐるしく進化するIT技術と顧客を繋ぐ架け橋となり、テクノロジーの価値を社会実装することで最大のインパクトを生み出したいからである。
                         優れたIT技術は開発されるだけでは社会を変えられない。顧客の潜在的な課題を汲み取り、技術をビジネス上の価値に言い換えて提案・伴走して初めて、社会に大きなインパクトを残すことができると考える。ゆえに私は、自ら最前線に立ち、技術力をもって顧客のビジネス変革を牽引する技術営業職に強く惹かれている。
